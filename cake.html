@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday CA Sahiba 🎂</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 40%, #48203f 0%, #1b101e 50%, #09070e 100%);
+  overflow-x: hidden;
+}
+
+.cake-page {
+  min-height: 100vh;
+  padding: 28px 16px 55px;
+  text-align: center;
+  position: relative;
+}
+
+.back-link {
+  display: inline-block;
+  color: #ffc4df;
+  text-decoration: none;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  color: #ffb8da;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 400;
+  margin: 10px 0;
+  text-shadow: 0 0 25px #ff4fa3;
+}
+
+.subtitle {
+  color: #f4d7e8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.cake-stage {
+  position: relative;
+  width: min(420px, 94vw);
+  height: 340px;
+  margin: 5px auto 0;
+  perspective: 1000px;
+  touch-action: pan-y;
+}
+
+.cake {
+  position: absolute;
+  width: 300px;
+  height: 230px;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  transition: transform 1.3s cubic-bezier(.2,.8,.2,1);
+}
+
+.cake-half {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  transition: transform 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.cake-half.left { left: 0; }
+.cake-half.right { right: 0; }
+
+.cake-body {
+  position: absolute;
+  bottom: 0;
+  height: 135px;
+  width: 100%;
+  background: linear-gradient(90deg, #b94d83, #f5a4c8 45%, #c75d91);
+  border: 2px solid #ffbad8;
+  box-shadow: inset 0 -15px 0 #a53e72, 0 12px 20px #0006;
+}
+
+.cake-body::before {
+  content: "";
+  position: absolute;
+  inset: 12px 0 auto;
+  height: 6px;
+  background: #ffd5e7;
+  opacity: .85;
+}
+
+.cake-top {
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  top: 47px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fff0f6, #ffb7d7 72%, #e878ad);
+  border: 2px solid #ffe3ef;
+  z-index: 2;
+}
+
+.cake-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 28px;
+  height: 20px;
+  background: #f5a2c8;
+  border-radius: 0 0 50% 50%;
+}
+
+.cake-front {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: 0;
+  height: 140px;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(90deg, #b4497b, #f49bc3, #c6538b);
+  border: 2px solid #f7b6d4;
+  z-index: 1;
+}
+
+.cake-front::before {
+  content: "♡  ♡  ♡  ♡  ♡";
+  display: block;
+  margin-top: 62px;
+  color: #ffe7f2;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+
+.cake-half.left .cake-front {
+  border-radius: 0 0 0 10px;
+  border-right: 1px dashed #ffe1ed;
+}
+
+.cake-half.right .cake-front {
+  border-radius: 0 0 10px 0;
+  border-left: 1px dashed #ffe1ed;
+}
+
+.cake-half .cake-top {
+  border-radius: 50% 0 0 50%;
+}
+
+.cake-half.right .cake-top {
+  border-radius: 0 50% 50% 0;
+}
+
+.plaque {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: 62px;
+  transform: translateX(-50%);
+  width: 205px;
+  padding: 7px 5px;
+  border: 2px solid #fff0bb;
+  border-radius: 8px;
+  color: #fff7d6;
+  background: linear-gradient(135deg, #a42c67, #642048);
+  box-shadow: 0 0 15px #ff7ab4aa;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  line-height: 1.5;
+  transition: opacity .5s;
+}
+
+.candle {
+  position: absolute;
+  top: 7px;
+  width: 9px;
+  height: 43px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    45deg, #fff0a8, #fff0a8 5px, #f48bb9 5px, #f48bb9 10px
+  );
+  z-index: 5;
+}
+
+.candle:nth-child(1) { left: 85px; }
+.candle:nth-child(2) { left: 145px; }
+.candle:nth-child(3) { left: 205px; }
+
+.flame {
+  position: absolute;
+  width: 13px;
+  height: 21px;
+  left: -2px;
+  top: -22px;
+  background: radial-gradient(ellipse at 50% 65%, #fff9bc 0 15%, #ffbd3e 40%, #ff6d21 70%, transparent 72%);
+  border-radius: 50% 50% 45% 45%;
+  filter: drop-shadow(0 0 8px #ffb329);
+  animation: flicker .3s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes flicker {
+  from { transform: rotate(-5deg) scale(1); }
+  to { transform: rotate(5deg) scale(.88, 1.08); }
+}
+
+.smoke {
+  position: absolute;
+  left: -2px;
+  top: -25px;
+  width: 15px;
+  height: 25px;
+  opacity: 0;
+  border-radius: 50%;
+  border-left: 3px solid #ddd;
+}
+
+.smoke.show {
+  animation: smokeRise 1.7s ease-out forwards;
+}
+
+@keyframes smokeRise {
+  0% { opacity: .8; transform: translateY(0) scale(.5); }
+  100% { opacity: 0; transform: translate(-12px, -45px) scale(2); }
+}
+
+.knife {
+  position: absolute;
+  z-index: 20;
+  left: 4%;
+  top: 145px;
+  width: 115px;
+  height: 42px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transform: rotate(-15deg);
+  filter: drop-shadow(0 6px 5px #0008);
+}
+
+.knife:active { cursor: grabbing; }
+
+.knife-blade {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 78px;
+  height: 14px;
+  background: linear-gradient(#fff, #c5cbd4 45%, #f8f8ff 55%, #9aa3b1);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  border-radius: 2px;
+}
+
+.knife-handle {
+  position: absolute;
+  left: 72px;
+  top: 7px;
+  width: 42px;
+  height: 20px;
+  border-radius: 5px 12px 12px 5px;
+  background: linear-gradient(#d98aaf, #782b51);
+  border: 1px solid #ffb4d3;
+}
+
+.cut-line {
+  position: absolute;
+  z-index: 9;
+  top: 84px;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  border-left: 3px dashed #fff2f8;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.cake.cut .cake-half.left {
+  transform: translate(-48px, 5px) rotate(-7deg);
+}
+
+.cake.cut .cake-half.right {
+  transform: translate(48px, 8px) rotate(7deg);
+}
+
+.cake.cut .plaque { opacity: 0; }
+
+.cake.cut .cut-line { opacity: 0; }
+
+.hint {
+  color: #ffd4e8;
+  font-size: 13px;
+  min-height: 24px;
+  margin: 0 auto 15px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px auto 25px;
+}
+
+.action-btn {
+  border: 1px solid #ffadd1;
+  background: linear-gradient(135deg, #ff7db6, #bc3b82);
+  color: white;
+  padding: 12px 19px;
+  border-radius: 28px;
+  font: 600 13px 'Poppins', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 5px 20px #e34a9850;
+  transition: transform .2s, opacity .2s;
+}
+
+.action-btn:hover { transform: translateY(-2px); }
+.action-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.reveal {
+  display: none;
+  max-width: 360px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ffacd2;
+  border-radius: 22px;
+  background: #ffffff0b;
+  box-shadow: 0 0 30px #ff5aa52b;
+  animation: appear .9s ease both;
+}
+
+.reveal.show { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px) scale(.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.reveal h2 {
+  font: 2.3rem 'Great Vibes', cursive;
+  color: #ffacd2;
+  margin: 0 0 10px;
+}
+
+.reveal img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid #ffb6d8;
+}
+
+.photo-note { color: #f4d7e8; font-size: 12px; }
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 100;
+  pointer-events: none;
+  animation: fall 3.5s linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(700deg); opacity: 0; }
+}
+
+@media(max-width: 380px) {
+  .cake { transform: translateX(-50%) scale(.87); transform-origin: bottom center; }
+  .cake.cut { transform: translateX(-50%) scale(.87); }
+}
+</style>
+</head>
+
+<body>
+<main class="cake-page">
+  <a class="back-link" href="home.html">← Back to the birthday celebration</a>
+
+  <h1>A Cake Made for You</h1>
+  <p class="subtitle">Make a wish, blow out the candles, and cut your birthday cake 💗</p>
+
+  <div class="cake-stage" id="cakeStage">
+    <div class="cake" id="cake">
+      <div class="cake-half left">
+        <div class="cake-top"></div>
+        <div class="cake-front"></div>
+      </div>
+
+      <div class="cake-half right">
+        <div class="cake-top"></div>
+        <div class="cake-front"></div>
+      </div>
+
+      <div class="plaque" id="plaque">
+        HAPPY BIRTHDAY<br>
+        <strong>CA SAHIBA</strong>
+      </div>
+
+      <div class="candle" style="left: 95px">
+        <span class="flame"></span><span class="smoke"></span>
+      </div>
+      <div class="candle" style="left: 145px">
+        <span class="flame"></span><span class="smoke"></span>
+      </div>
+      <div class="candle" style="left: 195px">
+        <span class="flame"></span><span class="smoke"></span>
+      </div>
+
+      <div class="cut-line"></div>
+    </div>
+
+    <div class="knife" id="knife" role="button" tabindex="0"
+         aria-label="Drag the knife across the cake to cut it">
+      <div class="knife-blade"></div>
+      <div class="knife-handle"></div>
+    </div>
+  </div>
+
+  <p class="hint" id="hint">First, blow out the candles and make a wish.</p>
+
+  <div class="controls">
+    <button class="action-btn" id="blowBtn">🕯️ Blow out the candles</button>
+    <button class="action-btn" id="cutBtn" disabled>🔪 Cut the Cake</button>
+  </div>
+
+  <section class="reveal" id="reveal">
+    <h2>Happy Birthday, CA Sahiba!</h2>
+    <p>May your life be as sweet as this cake, as beautiful as your heart, and filled with all the happiness you deserve. 💗</p>
+
+    <!-- Add her photo at photos/ca-sahiba.jpg -->
+    <img src="photos/ca-sahiba.jpg" alt="A special birthday memory"
+         onerror="this.style.display='none'; document.getElementById('photoNote').style.display='block'">
+
+    <p class="photo-note" id="photoNote" style="display:none">
+      Add her favourite photo as <strong>photos/ca-sahiba.jpg</strong> to reveal it here.
+    </p>
+    <p>You deserve all the love and happiness in the world. ✨</p>
+  </section>
+</main>
+
+<script>
+const cake = document.getElementById('cake');
+const knife = document.getElementById('knife');
+const blowBtn = document.getElementById('blowBtn');
+const cutBtn = document.getElementById('cutBtn');
+const hint = document.getElementById('hint');
+const reveal = document.getElementById('reveal');
+const stage = document.getElementById('cakeStage');
+
+let candlesOut = false;
+let cakeCut = false;
+let dragging = false;
+let startX = 0;
+let startY = 0;
+let movedAcross = false;
+let knifeOffsetX = 0;
+let knifeOffsetY = 0;
+
+blowBtn.addEventListener('click', () => {
+  if (candlesOut) return;
+
+  candlesOut = true;
+
+  document.querySelectorAll('.flame').forEach(flame => {
+    flame.style.display = 'none';
+  });
+
+  document.querySelectorAll('.smoke').forEach(smoke => {
+    smoke.classList.add('show');
+  });
+
+  blowBtn.disabled = true;
+  cutBtn.disabled = false;
+  hint.textContent = 'Make your wish! Now drag the knife across the cake, or tap Cut the Cake.';
+});
+
+function cutCake() {
+  if (!candlesOut || cakeCut) return;
+
+  cakeCut = true;
+  cake.classList.add('cut');
+  knife.style.opacity = '0';
+  knife.style.pointerEvents = 'none';
+  cutBtn.disabled = true;
+
+  hint.textContent = 'You did it! Your special birthday surprise is here. 💗';
+
+  setTimeout(() => {
+    reveal.classList.add('show');
+    reveal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    makeConfetti();
+  }, 850);
+}
+
+cutBtn.addEventListener('click', cutCake);
+
+// Drag the knife with a mouse, touchscreen, or stylus.
+knife.addEventListener('pointerdown', event => {
+  if (!candlesOut || cakeCut) return;
+
+  dragging = true;
+  movedAcross = false;
+  startX = event.clientX;
+  startY = event.clientY;
+
+  const rect = knife.getBoundingClientRect();
+  knifeOffsetX = event.clientX - rect.left;
+  knifeOffsetY = event.clientY - rect.top;
+
+  knife.setPointerCapture(event.pointerId);
+  event.preventDefault();
+});
+
+knife.addEventListener('pointermove', event => {
+  if (!dragging || cakeCut) return;
+
+  const stageRect = stage.getBoundingClientRect();
+  const newX = event.clientX - stageRect.left - knifeOffsetX;
+  const newY = event.clientY - stageRect.top - knifeOffsetY;
+
+  knife.style.left = `${Math.max(-5, Math.min(stage.clientWidth - 100, newX))}px`;
+  knife.style.top = `${Math.max(0, Math.min(stage.clientHeight - 35, newY))}px`;
+
+  const dx = event.clientX - startX;
+  const dy = event.clientY - startY;
+
+  if (Math.abs(dx) > 70 && Math.abs(dy) < 75) {
+    movedAcross = true;
+  }
+});
+
+function endDrag() {
+  if (!dragging) return;
+  dragging = false;
+
+  if (candlesOut && movedAcross && !cakeCut) {
+    cutCake();
+  }
+}
+
+knife.addEventListener('pointerup', endDrag);
+knife.addEventListener('pointercancel', endDrag);
+knife.addEventListener('lostpointercapture', () => {
+  dragging = false;
+});
+
+knife.addEventListener('keydown', event => {
+  if ((event.key === 'Enter' || event.key === ' ') && candlesOut) {
+    event.preventDefault();
+    cutCake();
+  }
+});
+
+function makeConfetti() {
+  const symbols = ['💗', '✨', '🌸', '💕', '🎉', '🌷'];
+
+  for (let i = 0; i < 65; i++) {
+    const piece = document.createElement('span');
+    piece.className = 'confetti';
+    piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.animationDelay = Math.random() * 1.5 + 's';
+    piece.style.fontSize = (12 + Math.random() * 18) + 'px';
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 5500);
+  }
+}
+</script>
+</body>
+</html>
